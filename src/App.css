@@ -8,45 +8,45 @@ body{ min-height:100vh; margin:0; position:relative; }
   background-position: center;
 }
 
-/*@font-face {
+@font-face {
   font-family: "Rubik-Regular";
-  src: url("../../fonts/Rubik-Regular.ttf");
-}*/
+  src: url("./fonts/Rubik-Regular.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "Rubik-Bold";
-  src: url("../../fonts/Rubik-Bold.ttf");
-}*/
+  src: url("./fonts/Rubik-Bold.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "Kanit-Bold";
-  src: url("../../fonts/Kanit-Bold.ttf");
-}*/
+  src: url("./fonts/Kanit-Bold.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "Kanit-Regular";
-  src: url("../../fonts/Kanit-Regular.ttf");
-}*/
+  src: url("./fonts/Kanit-Regular.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "RobotoSlab-Bold";
-  src: url("../../fonts/RobotoSlab-Bold.ttf");
-}*/
+  src: url("./fonts/RobotoSlab-Bold.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "RobotoSlab-Regular";
-  src: url("../../fonts/RobotoSlab-Regular.ttf");
-}*/
+  src: url("./fonts/RobotoSlab-Regular.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "RobotoCondensed-Regular";
-  src: url("../../fonts/RobotoCondensed-Regular.ttf");
-}*/
+  src: url("./fonts/RobotoCondensed-Regular.ttf");
+}
 
-/*@font-face {
+@font-face {
   font-family: "RobotoCondensed-Bold";
-  src: url("../../fonts/RobotoCondensed-Bold.ttf");
-}*/
+  src: url("./fonts/RobotoCondensed-Bold.ttf");
+}
 
 .center {
   display: flex;
