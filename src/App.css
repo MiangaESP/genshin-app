@@ -1,0 +1,217 @@
+body{ min-height:100vh; margin:0; position:relative; }
+
+#parent>child img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("/fonts/Rubik-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("/fonts/Rubik-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Kanit-Bold";
+  src: url("/fonts/Kanit-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Kanit-Regular";
+  src: url("/fonts/Kanit-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoSlab-Bold";
+  src: url("/fonts/RobotoSlab-Bold.ttf");
+}
+
+@font-face {
+  font-family: "RobotoSlab-Regular";
+  src: url("/fonts/RobotoSlab-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Regular";
+  src: url("/fonts/RobotoCondensed-Regular.ttf");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url("/fonts/RobotoCondensed-Bold.ttf");
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerAbout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 160px;
+  flex-flow: column wrap;
+}
+
+.centerAboutSeparation {
+  margin-right: 100px;
+}
+
+.centerAboutLogos {
+  display: flex;
+  margin-top: 30px;
+  flex-flow: row nowrap;
+}
+
+.centerHabilities {
+  border-radius: 0 0 20px 0;
+  display: flex;
+  flex-grow: 4;
+  justify-content: center;
+}
+
+.centerItems {
+  align-self: stretch;
+  align-items: stretch;
+  display: flex;
+  flex-grow: 4;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+  margin-bottom: 30px;
+}
+
+.centerText {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.header {
+  margin-top: 10px;
+}
+
+.buttonsParent {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  flex-grow: 4;
+}
+
+.Parent {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-grow: 4;
+}
+
+.characterParent {
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+}
+
+.characterParentMobile {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+}
+
+img.imageParent {
+  border-radius: 20px 0 0 20px;
+  height: 100%;
+}
+
+.keysParent {
+  height: auto;
+  width: auto;
+  align-self: stretch;
+  border-radius: 25px;
+  align-items: stretch;
+  display: flex;
+  flex-grow: 5;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+}
+
+.keyParent {
+  display: flex;
+  border-radius: 25px;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 4;
+  align-self: stretch;
+  flex-flow: row nowrap;
+}
+
+.keyChar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-self: stretch;
+  min-width: 160px;
+}
+
+.keyWea {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-self: stretch;
+  min-width: 230px;
+}
+
+.value {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-grow: 8;
+
+}
+
+.valueUp {
+  border-radius: 0 20px 0 0;
+}
+
+.valueDown {
+  border-radius: 0 0 20px 0;
+}
+
+.filterContainer {
+  flex-flow: row wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filterContainerChild {
+
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.centerCharacter {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+table,
+th,
+td,
+tr {
+  border: 2px solid black;
+  empty-cells: show;
+}
