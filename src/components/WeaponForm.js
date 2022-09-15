@@ -114,7 +114,7 @@ const GridContent = () => {
             console.log(JSON.stringify(Object.fromEntries(formData)))
             try {
                 await axios.post(
-                    "/api/armas",
+                    "https://genshin-api-tau.vercel.app/armas",
                     formData
                 );
                 setSuccessMessage("El arma se ha guardado correctamente")

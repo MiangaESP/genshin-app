@@ -158,7 +158,7 @@ const GridContent = () => {
             console.log(formData)
             try {
                 await axios.post(
-                    "/api/personajes",
+                    "https://genshin-api-tau.vercel.app/personajes",
                     formData
                 );
                 successProcess()

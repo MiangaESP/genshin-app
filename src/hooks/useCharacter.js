@@ -7,7 +7,7 @@ const useCharacters = () => {
 
     useEffect(() => {
         setLoadingChar(true)
-        fetch('/api/personajes')
+        fetch('https://genshin-api-tau.vercel.app/personajes')
             .then((response) => response.json())
             .then((response) => {
                 setCharacters(response)

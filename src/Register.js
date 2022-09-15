@@ -55,7 +55,7 @@ const GridContent = () => {
         event.preventDefault()
         try {
             await axios.post(
-                "/api/usuarios",
+                "https://genshin-api-tau.vercel.app/usuarios",
                 { username: event.target.username.value, password: event.target.password.value, token: REACT_APP_TOKEN }
             );
             setRegistered(true)

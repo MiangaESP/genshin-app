@@ -5,7 +5,7 @@ const useWeapons = () => {
     const [weapons, setWeapons] = useState([])
     useEffect(() => {
         setLoadingWea(true)
-        fetch('/api/armas')
+        fetch('https://genshin-api-tau.vercel.app/armas')
             .then((response) => response.json())
             .then((response) => {
                 setLoadingWea(false)

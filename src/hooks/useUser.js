@@ -27,7 +27,7 @@ export const useUser = () => {
         const password = event.target.password.value
         try {
             const userGiven = await axios.post(
-                "/api/login",
+                "https://genshin-api-tau.vercel.app/login",
                 { username, password}
             )
             window.localStorage.setItem(
