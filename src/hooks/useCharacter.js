@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+const {REACT_APP_API_MAIN_PATH}= process.env
 
 const useCharacters = () => {
     const [characters, setCharacters] = useState([])
@@ -7,7 +8,7 @@ const useCharacters = () => {
 
     useEffect(() => {
         setLoadingChar(true)
-        fetch('https://genshin-api-tau.vercel.app/personajes')
+        fetch(`${REACT_APP_API_MAIN_PATH}personajes`)
             .then((response) => response.json())
             .then((response) => {
                 setCharacters(response)

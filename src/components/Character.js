@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import { useMediaQuery } from '@mui/material';
 import { useState } from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+const {REACT_APP_API_MAIN_PATH}= process.env
 
 const keyTheme = createTheme({
     typography: {
@@ -82,7 +83,7 @@ const Character = ({ character, index }) => {
             <div key={index} className={`centerCharacter ${matches ? 'characterParent' : 'characterParentMobile'}`}>
                 <div key={character.key} style={borderImg} name="characterImage">
                     <img className="imageParent" height='500px' width={matches ? '250' : '320'}
-                        src={`${character.img}`}
+                        src={`${REACT_APP_API_MAIN_PATH}${character.img}`}
                         alt={`imagen de ${character.nombre} `} />
                 </div>
                 <div key={0} className="keysParent">

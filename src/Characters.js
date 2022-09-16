@@ -20,6 +20,13 @@ const notFoundTheme = createTheme({
     },
 });
 
+const aclarationTheme = createTheme({
+    typography: {
+        fontFamily: 'RobotoSlab-Bold',
+        fontSize: 20
+    },
+});
+
 const Characters = () => {
     const { characters, loadingChar } = useCharacters()
     const { filteredCharacters, nothingFound, newFilter } = useCharFilter()
@@ -28,19 +35,24 @@ const Characters = () => {
         <div className='Parent' style={{ marginTop: "40px" }}>
             <ThemeProvider theme={mainTheme}>
                 <Typography className='center centerText' variant="h2" gutterBottom>
-                Personajes
-            </Typography></ThemeProvider>
-            {loadingChar ? 
-            <ThemeProvider theme={mainTheme}><Typography className='center centerText' variant="h4" gutterBottom>
-                Cargando...
-            </Typography></ThemeProvider>
+                    Personajes
+                </Typography></ThemeProvider>
+            {loadingChar ?
+                <>
+                    <ThemeProvider theme={mainTheme}><Typography className='center centerText' variant="h4" gutterBottom>
+                        Cargando...
+                    </Typography></ThemeProvider>
+                    <ThemeProvider theme={aclarationTheme}><Typography className='center centerText' variant="body1" gutterBottom>
+                        Este proceso puede tardar hasta 30 segundos debido al host gratuito
+                    </Typography></ThemeProvider>
+                </>
                 : <>
                     <CharacterFilter className='center' newFilter={newFilter} />
                     {
-                        nothingFound ? 
-                        <ThemeProvider theme={notFoundTheme}><Typography className='center centerText' variant="body1" gutterBottom>
-                            No se ha encontrado ningun personaje que cumpla con estos filtros
-                        </Typography></ThemeProvider>
+                        nothingFound ?
+                            <ThemeProvider theme={notFoundTheme}><Typography className='center centerText' variant="body1" gutterBottom>
+                                No se ha encontrado ningun personaje que cumpla con estos filtros
+                            </Typography></ThemeProvider>
                             :
                             filteredCharacters.length === 0
                                 ? characters.map((character, index) =>

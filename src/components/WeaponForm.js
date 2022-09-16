@@ -18,7 +18,7 @@ import axios from 'axios'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 require('dotenv').config()
 
-const {REACT_APP_TOKEN}= process.env
+const {REACT_APP_TOKEN, REACT_APP_API_MAIN_PATH}= process.env
 
 const filterTheme = createTheme({
     typography: {
@@ -82,16 +82,26 @@ const StatSelect = () => {
 const GridContent = () => {
     const [file, setFile] = useState()
     const [fileName, setFileName] = useState("")
-    const [success, setSuccess] = useState(false)
+    const [successImagen, setSuccessImagen] = useState(false)
+    const [successEnviar, setSuccessEnviar] = useState(false)
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     const [successMessage, setSuccessMessage] = useState("")
 
-    const buttonSx = {
-        ...(success && {
+    const buttonEnviarSx = {
+        ...(successEnviar && {
             bgcolor: green[500],
             '&:hover': {
                 bgcolor: green[700],
+            },
+        }),
+    };
+
+    const buttonImagenSx = {
+        ...(successImagen && {
+            bgcolor: green[200],
+            '&:hover': {
+                bgcolor: green[300],
             },
         }),
     };
@@ -100,13 +110,34 @@ const GridContent = () => {
         setFile(e.target.files[0]);
         console.log(e.target.files[0])
         setFileName(e.target.files[0].name);
+        setSuccessImagen(true)
+    }
+
+    const successProcess = () => {
+        setSuccessMessage("El personaje se ha guardado correctamente")
+        setErrorMessage("")
+        setSuccessEnviar(true);
+        setLoading(false);
+        setTimeout(() => {
+            setSuccessMessage("")
+            setSuccessEnviar(false);
+        }, 5000)
+    }
+
+    const failedProcess = (error) => {
+        setErrorMessage(error.response.data.error)
+        setSuccessImagen(false)
+        setLoading(false);
+        setTimeout(() => {
+            setErrorMessage("")
+        }, 5000)
     }
 
     const sendForm = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target);
         if (fileName !== "") {
-            setSuccess(false);
+            setSuccessEnviar(false);
             setLoading(true);
             formData.append("token", REACT_APP_TOKEN);
             formData.append("file", file);
@@ -114,25 +145,13 @@ const GridContent = () => {
             console.log(JSON.stringify(Object.fromEntries(formData)))
             try {
                 await axios.post(
-                    "https://genshin-api-tau.vercel.app/armas",
+                    `${REACT_APP_API_MAIN_PATH}armas`,
                     formData
                 );
-                setSuccessMessage("El arma se ha guardado correctamente")
-                setErrorMessage("")
-                setSuccess(true);
-                setLoading(false);
+                successProcess()
                 window.location.replace("/?created=true");
-                setTimeout(() => {
-                    setSuccessMessage("")
-                    setSuccess(false);
-                }, 5000)
             } catch (error) {
-                console.log(error.response.data);
-                setErrorMessage(error.response.data.error)
-                setLoading(false);
-                setTimeout(() => {
-                    setErrorMessage("")
-                }, 5000)
+                failedProcess(error)
             }
         } else {
             setErrorMessage("Por favor, sube una imagen")
@@ -168,7 +187,7 @@ const GridContent = () => {
                     <TextField label="Efecto pasivo" name="efecto_pasivo" placeholder='Nombre del efecto pasivo' variant='outlined' fullWidth required />
                 </Grid>
                 <Grid xs={12} item>
-                    <Button fullWidth variant="outlined" component="label">
+                    <Button fullWidth variant="outlined" component="label" sx={buttonImagenSx}>
                         Subir Imagen <input type="file" onChange={saveFile}
                             name="myFile" accept="image/png, image/jpg, image/jpeg" hidden />
                     </Button>
@@ -177,7 +196,7 @@ const GridContent = () => {
                     ?
                     <Grid xs={12} item>
                         <Stack >
-                            <Alert severity="error">
+                            <Alert severity="error" onClose={() => { setErrorMessage("") }}>
                                 <AlertTitle>Error</AlertTitle>
                                 {errorMessage}
                             </Alert>
@@ -187,14 +206,14 @@ const GridContent = () => {
                     ?
                     <Grid xs={12} item>
                         <Stack >
-                            <Alert severity="success">
+                            <Alert severity="success" onClose={() => { setSuccessMessage("") }}>
                                 <AlertTitle>Conseguido</AlertTitle>
                                 {successMessage}
                             </Alert>
                         </Stack>
                     </Grid> : null}
                 <Grid xs={12} item >
-                    <Button fullWidth type="submit" variant="contained" sx={buttonSx} disabled={loading}>
+                    <Button fullWidth type="submit" variant="contained" sx={buttonEnviarSx} disabled={loading}>
                         Enviar
                     </Button>
                     {loading && (

@@ -17,7 +17,7 @@ import { Button } from '@mui/material';
 import { useState } from 'react';
 import axios from 'axios'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-const { REACT_APP_TOKEN } = process.env
+const { REACT_APP_TOKEN, REACT_APP_API_MAIN_PATH} = process.env
 
 require('dotenv').config()
 
@@ -148,7 +148,6 @@ const GridContent = () => {
     const sendForm = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target);
-        console.log(REACT_APP_TOKEN)
         if (fileName !== "") {
             setSuccessEnviar(false);
             setLoading(true);
@@ -156,9 +155,10 @@ const GridContent = () => {
             formData.append("file", file);
             formData.append("fileName", fileName);
             console.log(formData)
+            console.log(REACT_APP_API_MAIN_PATH)
             try {
                 await axios.post(
-                    "https://genshin-api-tau.vercel.app/personajes",
+                    `${REACT_APP_API_MAIN_PATH}personajes`,
                     formData
                 );
                 successProcess()

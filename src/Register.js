@@ -12,7 +12,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-const {REACT_APP_TOKEN}= process.env
+const {REACT_APP_TOKEN, REACT_APP_API_MAIN_PATH}= process.env
 
 const filterTheme = createTheme({
     typography: {
@@ -55,7 +55,7 @@ const GridContent = () => {
         event.preventDefault()
         try {
             await axios.post(
-                "https://genshin-api-tau.vercel.app/usuarios",
+                `${REACT_APP_API_MAIN_PATH}usuarios`,
                 { username: event.target.username.value, password: event.target.password.value, token: REACT_APP_TOKEN }
             );
             setRegistered(true)

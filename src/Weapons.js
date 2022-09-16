@@ -20,6 +20,13 @@ const notFoundTheme = createTheme({
     },
 });
 
+const aclarationTheme = createTheme({
+    typography: {
+        fontFamily: 'RobotoSlab-Bold',
+        fontSize: 20
+    },
+});
+
 const Weapons = () => {
     const { weapons, loadingWea } = useWeapons()
     const { filteredWeapons, nothingFound, newFilter } = useWeaponFilter()
@@ -31,17 +38,22 @@ const Weapons = () => {
                     Armas
                 </Typography>
             </ThemeProvider>
-            {loadingWea ? <ThemeProvider theme={mainTheme}>
-                <Typography className='center centerText' variant="h4" gutterBottom>
-                    Cargando...
-                </Typography></ThemeProvider>
+            {loadingWea ?
+                <>
+                    <ThemeProvider theme={mainTheme}><Typography className='center centerText' variant="h4" gutterBottom>
+                        Cargando...
+                    </Typography></ThemeProvider>
+                    <ThemeProvider theme={aclarationTheme}><Typography className='center centerText' variant="body1" gutterBottom>
+                        Este proceso puede tardar hasta 30 segundos debido al host gratuito
+                    </Typography></ThemeProvider>
+                </>
                 : <>
                     <WeaponFilter className='center' newFilter={newFilter} />
                     {
                         nothingFound ? <ThemeProvider theme={notFoundTheme}>
-                        <Typography className='center centerText' variant="body1" gutterBottom>
-                            No se ha encontrado ningun arma que cumpla con estos filtros
-                        </Typography> </ThemeProvider>
+                            <Typography className='center centerText' variant="body1" gutterBottom>
+                                No se ha encontrado ningun arma que cumpla con estos filtros
+                            </Typography> </ThemeProvider>
 
 
                             :

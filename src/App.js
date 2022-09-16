@@ -78,6 +78,10 @@ function App() {
   const { user, handleLogout } = useUser()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
+  useEffect(()=>{
+    document.title = 'Genshin APP';
+  })
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
