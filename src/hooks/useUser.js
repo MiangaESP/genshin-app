@@ -26,10 +26,9 @@ export const useUser = () => {
         event.preventDefault()
         const username = event.target.username.value
         const password = event.target.password.value
-        console.log(REACT_APP_API_MAIN_PATH)
         try {
             const userGiven = await axios.post(
-                `${REACT_APP_API_MAIN_PATH}login`,
+                `${REACT_APP_API_MAIN_PATH}/login`,
                 { username, password, token: REACT_APP_TOKEN}
             )
             window.localStorage.setItem(

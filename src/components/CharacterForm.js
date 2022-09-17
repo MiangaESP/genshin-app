@@ -154,11 +154,9 @@ const GridContent = () => {
             formData.append("token", REACT_APP_TOKEN);
             formData.append("file", file);
             formData.append("fileName", fileName);
-            console.log(formData)
-            console.log(REACT_APP_API_MAIN_PATH)
             try {
                 await axios.post(
-                    `${REACT_APP_API_MAIN_PATH}personajes`,
+                    `${REACT_APP_API_MAIN_PATH}/personajes`,
                     formData
                 );
                 successProcess()

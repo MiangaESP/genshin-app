@@ -145,7 +145,7 @@ const GridContent = () => {
             console.log(JSON.stringify(Object.fromEntries(formData)))
             try {
                 await axios.post(
-                    `${REACT_APP_API_MAIN_PATH}armas`,
+                    `${REACT_APP_API_MAIN_PATH}/armas`,
                     formData
                 );
                 successProcess()

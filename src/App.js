@@ -53,23 +53,23 @@ const Home = () => {
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-        return;
+      return;
     }
     setOpen(false);
-}
+  }
 
   return (
     <>
-    <ThemeProvider theme={mainTheme}>
-      <Typography style={{ marginTop: "200px" }} className='centerText' variant="h1" gutterBottom>
-        Genshin APP
-      </Typography>
-    </ThemeProvider>
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-        El personaje o arma se ha creado correctamente
-    </Alert>
-</Snackbar></>)
+      <ThemeProvider theme={mainTheme}>
+        <Typography style={{ marginTop: "200px" }} className='centerText' variant="h1" gutterBottom>
+          Genshin APP
+        </Typography>
+      </ThemeProvider>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          El personaje o arma se ha creado correctamente
+        </Alert>
+      </Snackbar></>)
 }
 
 
@@ -78,7 +78,7 @@ function App() {
   const { user, handleLogout } = useUser()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     document.title = 'Genshin APP';
   })
 
@@ -142,9 +142,16 @@ function App() {
                   <MenuItem key={"about"} onClick={handleCloseNavMenu} component={Link} to='/about'>
                     <Typography textAlign="center">Acerca de</Typography>
                   </MenuItem>
-                  <MenuItem key={"logout"} onClick={handleLogout}>
-                    <Typography textAlign="center">Cerrar Sesion</Typography>
-                  </MenuItem>
+                  {user
+                    ? <MenuItem key={"logout"} onClick={handleLogout}>
+                      <Typography textAlign="center">Cerrar Sesion</Typography>
+                    </MenuItem>
+                    :
+                    <MenuItem key={"login"} onClick={handleCloseNavMenu} component={Link} to='/login'>
+                      <Typography textAlign="center">Iniciar sesion</Typography>
+                    </MenuItem>
+                  }
+
                 </Menu>
               </Box>
               {/* Mostramos las opciones de la pagina */}

@@ -6,7 +6,7 @@ const useWeapons = () => {
     const [weapons, setWeapons] = useState([])
     useEffect(() => {
         setLoadingWea(true)
-        fetch(`${REACT_APP_API_MAIN_PATH}armas`)
+        fetch(`${REACT_APP_API_MAIN_PATH}/armas`)
             .then((response) => response.json())
             .then((response) => {
                 setLoadingWea(false)

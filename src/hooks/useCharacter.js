@@ -8,7 +8,7 @@ const useCharacters = () => {
 
     useEffect(() => {
         setLoadingChar(true)
-        fetch(`${REACT_APP_API_MAIN_PATH}personajes`)
+        fetch(`${REACT_APP_API_MAIN_PATH}/personajes`)
             .then((response) => response.json())
             .then((response) => {
                 setCharacters(response)

@@ -55,7 +55,7 @@ const GridContent = () => {
         event.preventDefault()
         try {
             await axios.post(
-                `${REACT_APP_API_MAIN_PATH}usuarios`,
+                `${REACT_APP_API_MAIN_PATH}/usuarios`,
                 { username: event.target.username.value, password: event.target.password.value, token: REACT_APP_TOKEN }
             );
             setRegistered(true)
