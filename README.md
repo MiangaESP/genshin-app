@@ -32,7 +32,7 @@ Por último, tendremos dos botones según si estamos conectados con un usuario o
 
 En la página de Iniciar Sesión, nos encontramos un formulario que tendremos que rellenar si tenemos un usuario registrado. Si este no es el caso, bajo el formulario tenemos un enlace a la página de registrarse. En esta página tendremos que rellenar el mismo formulario que el inicio de sesión, pero para registrar el usuario.
 
-## Inglés
+## English
 
 As soon as we enter the web page we can see the home page, which has the title of the web in large, as well as the header that we will find in all the available routes.
 In this header, we can navigate through different routes:
